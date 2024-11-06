@@ -6,15 +6,21 @@
     <title>Background Music</title>
 </head>
 <body>
-    <button onclick="document.getElementById('bg-music').play()">Play Music</button>
-
     <!-- Audio element to play background music -->
-    <audio id="bg-music" autoplay loop>
+    <audio id="bg-music" autoplay loop muted>
         <source src="Crystal Castles - Transgender (tiktok remix)(MP3_160K).mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
 
     <h1>Welcome to My Website</h1>
     <p>Enjoy the background music!</p>
+
+    <script>
+        // Wait until the audio starts playing, then unmute it
+        const audio = document.getElementById('bg-music');
+        audio.oncanplaythrough = () => {
+            audio.muted = false; // Unmute after it begins playing
+        };
+    </script>
 </body>
 </html>
